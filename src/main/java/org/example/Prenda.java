@@ -1,11 +1,23 @@
 package org.example;
 
+import org.example.enums.Material;
+import org.example.enums.Trama;
+
 public class Prenda {
 
     private final TipoPrenda tipo;
-    private final String material;
-    private final String colorPrincipal;
-    private String colorSecundario;
+    private final Material material;
+    private final Trama trama;
+    private final Color colorPrincipal;
+    private Color colorSecundario;
+
+    public Prenda(TipoPrenda tipo, Material material, Trama trama, Color colorPrincipal, Color colorSecundario) {
+        this.tipo = tipo;
+        this.material = material;
+        this.trama = trama;
+        this.colorPrincipal = colorPrincipal;
+        this.colorSecundario = colorSecundario;
+    }
 
     @Override
     public String toString() {
@@ -13,18 +25,5 @@ public class Prenda {
         if(this.colorSecundario != null) string += " y " + this.colorSecundario;
 
         return string;
-    }
-
-    public Prenda(TipoPrenda tipo, String material, String colorPrincipal) {
-        this.tipo = tipo;
-        this.material = material;
-        this.colorPrincipal = colorPrincipal;
-    }
-
-    public Prenda(TipoPrenda tipo, String material, String colorPrincipal, String colorSecundario) {
-        this.tipo = tipo;
-        this.material = material;
-        this.colorPrincipal = colorPrincipal;
-        this.colorSecundario = colorSecundario;
     }
 }

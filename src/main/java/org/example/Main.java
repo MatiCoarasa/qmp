@@ -1,26 +1,24 @@
 package org.example;
 
+import org.example.enums.Categoria;
+import org.example.enums.Material;
+import org.example.enums.Trama;
+
 import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        Categoria catSuperior = new Categoria("Superior");
-        Categoria catInferior = new Categoria("Inferior");
-        Categoria catAccesorios = new Categoria("Accesorios");
-        Categoria catCalzado = new Categoria("Calzado");
+        TipoPrenda tipoRemera = new TipoPrenda("Remera", Categoria.PARTE_SUPERIOR);
+        TipoPrenda tipoJean = new TipoPrenda("Jean", Categoria.PARTE_INFERIOR);
+        TipoPrenda tipoGorra = new TipoPrenda("Gorra", Categoria.ACCESORIO);
+        TipoPrenda tipoZapatillas = new TipoPrenda("Zapatillas", Categoria.CALZADO);
 
-        TipoPrenda tipoRemera = new TipoPrenda("Remera", catSuperior);
-        TipoPrenda tipoJean = new TipoPrenda("Jean", catInferior);
-        TipoPrenda tipoGorra = new TipoPrenda("Gorra", catAccesorios);
-        TipoPrenda tipoZapatillas = new TipoPrenda("Zapatillas", catCalzado);
+        Prenda remeraAzul = new PrendaBuilder(tipoRemera)
+                .conMaterial(Material.ALGODON)
+                .conTrama(Trama.LISO)
+                .conColorPrincipal(new Color(0, 0, 255))
+                .crear();
 
-        Prenda remeraAzul = new Prenda(tipoRemera, "algodon", "azul");
-        Prenda jeanNegro = new Prenda(tipoJean, "jean", "negro", "azul oscuro");
-        Prenda gorraFachera = new Prenda(tipoGorra, "poliester", "mostaza");
-        Prenda zapatosDeCueroEcologico = new Prenda(tipoZapatillas, "cuero ecologico", "negro");
-
-        Atuendo altoAtuendo = new Atuendo(Arrays.asList(remeraAzul, jeanNegro, gorraFachera, zapatosDeCueroEcologico));
-
-        System.out.print(altoAtuendo);
+        System.out.print(remeraAzul);
     }
 }
